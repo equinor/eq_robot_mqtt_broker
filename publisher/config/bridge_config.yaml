@@ -1,0 +1,15 @@
+mqtt:
+  client:
+    protocol: 4 # MQTTv311
+  account:
+    username: "$(env VERNEMQ_USER)"
+    password: "$(env VERNEMQ_PASSWORD)"
+  connection:
+    host: mqtt_broker
+    port: 1883
+    keepalive: 60
+bridge:
+  - factory: mqtt_bridge.bridge:RosToMqttBridge
+    msg_type: std_msgs.msg:String
+    topic_from: /chatter
+    topic_to: chatter

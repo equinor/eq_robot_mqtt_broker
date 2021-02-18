@@ -1,0 +1,48 @@
+version: "3"
+services:
+  mqtt_broker:
+    build: ./broker
+    image: mqtt_broker:latest
+    container_name: mqtt_broker
+    stdin_open: true
+    tty: true
+    ports:
+      - "8888:8888"
+      - "1883:1883"
+    networks:
+      - local
+    environment:
+      - VERNEMQ_USER=${VERNEMQ_USER}
+      - VERNEMQ_PASSWORD=${VERNEMQ_PASSWORD}
+
+  mqtt_subscriber:
+    build: ./subscriber
+    image: mqtt_subscriber:latest
+    container_name: mqtt_subscriber
+    stdin_open: true
+    tty: true
+    depends_on:
+      - mqtt_broker
+    networks:
+      - local
+    environment:
+      - VERNEMQ_USER=${VERNEMQ_USER}
+      - VERNEMQ_PASSWORD=${VERNEMQ_PASSWORD}
+
+  mqtt_publisher:
+    build: ./publisher
+    image: mqtt_publisher:latest
+    container_name: mqtt_publisher
+    stdin_open: true
+    tty: true
+    depends_on:
+      - mqtt_broker
+    networks:
+      - local
+    environment:
+      - VERNEMQ_USER=${VERNEMQ_USER}
+      - VERNEMQ_PASSWORD=${VERNEMQ_PASSWORD}
+
+networks:
+  local:
+    driver: bridge

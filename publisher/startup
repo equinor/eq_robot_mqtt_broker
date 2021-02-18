@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+sleep 5
+cd /home/catkin_ws
+source devel/setup.bash
+roslaunch mqtt_experiment mqtt_experiment.launch

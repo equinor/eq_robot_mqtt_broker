@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<launch>
+
+    <node
+        name="mqtt_publisher"
+        pkg="mqtt_experiment"
+        type="publisher.py"
+        args=""
+        output="screen">
+    </node>
+    <!--node
+        name="mqtt_subscriber"
+        pkg="mqtt_experiment"
+        type="subscriber.py"
+        args=""
+        output="screen">
+    </node-->
+
+    <node
+        name="mqtt_bridge"
+        pkg="mqtt_bridge"
+        type="mqtt_bridge_node.py"
+        args=""
+        output="screen">
+        <rosparam file="$(find mqtt_experiment)/config/bridge_config.yaml" command="load" subst_value="true"/>
+    </node>
+    
+    
+</launch>
