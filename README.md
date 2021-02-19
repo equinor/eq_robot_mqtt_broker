@@ -52,3 +52,7 @@ To manage the user/password file see the official VerneMQ [documentation](https:
 ### Broker inspection
 To inspect the broker during runtime you may use `docker exec` to access the container and use the `vmq-admin` tool to
 inspect the broker. See the VerneMq [documentation](https://docs.vernemq.com/administration/introduction) for more details.
+
+## Credits
+Thanks to [The EIT-hub experiments](https://github.com/equinor/eit-hub-experiments) repository for heplful guide to 
+VerneMQ.
