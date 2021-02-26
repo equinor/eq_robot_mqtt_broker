@@ -9,12 +9,13 @@ You must have
 ## Run the example
 Clone the repository and navigate to the root folder
 ```shell
-sudo docker-compose up
+sudo -E docker-compose up
 ```
+Note that the `-E` option is what enables passing environment variables from the host machine to the container.
    
 If you wish to force re-building of the docker images
 ```shell
-sudo docker-compose up --build
+sudo -E docker-compose up --build
 ```
 The docker-compose should now spin up three containers.
 1. mqtt_broker
