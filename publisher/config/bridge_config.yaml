@@ -8,8 +8,10 @@ mqtt:
     host: mqtt_broker
     port: 1883
     keepalive: 60
+serializer: json:dumps
+deserializer: json:loads
 bridge:
   - factory: mqtt_bridge.bridge:RosToMqttBridge
-    msg_type: std_msgs.msg:String
+    msg_type: nav_msgs.msg:Odometry
     topic_from: /chatter
     topic_to: chatter

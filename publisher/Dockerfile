@@ -19,6 +19,7 @@ COPY ./ catkin_ws/src/publisher
 WORKDIR /home/catkin_ws/
 
 RUN \
+    apt-get update &&\
     rosdep init &&\
     rosdep update &&\
     rosdep install --from-paths ./src --ignore-packages-from-source --rosdistro noetic -y

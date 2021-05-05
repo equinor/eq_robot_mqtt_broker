@@ -21,8 +21,8 @@ ARG PASSWORD
 ENV VERNEMQ_USER=$USER
 ENV VERNEMQ_PASSWORD=$PASSWORD
 
-RUN useradd -u 8877 run_user
-USER run_user
+# RUN useradd -u 8877 run_user
+# USER run_user
 
 CMD ["main.py"]
 ENTRYPOINT ["python"]

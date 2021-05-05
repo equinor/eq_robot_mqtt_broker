@@ -1,5 +1,7 @@
-import paho.mqtt.client as mqtt
+import json
 import os
+
+import paho.mqtt.client as mqtt
 
 
 def on_connect(client, userdata, rc, properties=None):
@@ -8,7 +10,11 @@ def on_connect(client, userdata, rc, properties=None):
 
 
 def on_message(client, userdata, message):
-    print(message.topic + " " + str(message.payload))
+    print(message.topic)
+    msg_json = message.payload.decode()
+    data = json.loads(msg_json)
+    s = json.dumps(data, indent=4, sort_keys=True)
+    print(s)
 
 
 if __name__ == "__main__":
