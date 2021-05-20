@@ -11,7 +11,9 @@ WORKDIR /root/
 RUN \
     mkdir src && \
     cd src && \
-    git clone https://github.com/vernemq/vernemq.git
+    git clone https://github.com/vernemq/vernemq.git && \
+    cd vernemq && \
+    git checkout 1.11.0
 
 WORKDIR /root/src/vernemq
 RUN make rel
