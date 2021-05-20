@@ -22,7 +22,7 @@ RUN \
 
 RUN \
     apt-get update && \
-    apt-get install -y erlang
+    apt-get install -y esl-erlang=1:23.2-1
 
 WORKDIR /root/
 RUN \
