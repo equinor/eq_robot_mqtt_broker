@@ -28,6 +28,20 @@ The docker-compose should now spin up three containers.
     
 The publisher will print its published message while the subscriber will echo the message. 
 
+## Run echo-subscriber
+Clone the repository and navigate to the root folder
+```shell
+sudo -E docker-compose -f docker-compose.echo-test.yml up
+```
+The docker-compose should now spin up two containers.
+1. mqtt_broker
+    - The MQTT server which relays messages. This is based on [VerneMQ](https://github.com/vernemq/vernemq).
+1. mqtt_echo_subscriber
+    - Subscriber written in Python which uses the [paho mqtt client](https://github.com/eclipse/paho.mqtt.python). Subscribes to the topics that the EchoMQTTClient
+    in isar/services/service_connection/echo publishes to for testing purposes. 
+    
+Subscriber will echo the recieved messages.
+
 ### VerneMQ status interface
 The VerneMQ status interface is exposed in localhost and may be accessed at 
 ```shell
